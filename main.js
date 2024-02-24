@@ -1,23 +1,19 @@
 "use strict"
-//user choice
-//computer choice
-//play function
-//take input from user and compter 
-//play-for one baari
-//game function will play it 3 times keeping tract of winner in each turn through counter
-//when loop ends result is displayed
 //if 0 user won the turn
 //if 1 computer won
 //if -1 draw
 let userChoice;
 let computerChoice;
-function getComputerChoice(){
-    let options=["rock","paper","scissor"];
-    return Math.random(options);
+let userCount=0;
+let computerCount=0;
+function getComputerChoice() {
+    let options = ["rock", "paper", "scissors"];
+    let randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
 }
-function playTurn(userChoice){
-    userChoice=toLowerCase(window.prompt("Your choice"));
-    computerChoice=getComputerChoice();
+function playTurn(userChoice,computerChoice){
+    console.log("user "+userChoice);
+    console.log("computer "+computerChoice);
     if(computerChoice==userChoice){
         return -1;
     }
@@ -50,30 +46,31 @@ function playTurn(userChoice){
     }
 }
 function playGame(){
-    let userCount=0;
-    let computerCount=0;
     let result;
     for(let i=1;i<=5;i++){
+        alert("Round "+i);
         userChoice=prompt("Enter your choice");
-        result=playTurn(userChoice);
+        result=playTurn(userChoice,getComputerChoice());
         if(result==0){
             userCount++;
-            console.log("You won this round");
+            alert("You won this round");
         }
         else if(result==1){
             computerCount++;
-            console.log("You lost this round");
+            alert("You lost this round");
         }
         else{
-            console.log("It is a draw");
+            //it always goes here
+            alert("It is a draw");
         }
     }
-    if(userCount>computerCount){
-        console.log("You won the game.");
-    }
-    else{
-        console.log("You lost this game");
-    }
+    
 }
 alert("Welcome to the rock paper scissor game \nYou will be playing against the computer");
 playGame();
+if(userCount>computerCount){
+    console.log("You won the game.");
+}
+else{
+    console.log("You lost this game");
+}
