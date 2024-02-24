@@ -50,7 +50,6 @@ function playTurn(userChoice){
     }
 }
 function playGame(){
-    alert("Welcome to the rock paper scissor game \nYou will be playing against the computer");
     let userCount=0;
     let computerCount=0;
     let result;
@@ -76,3 +75,5 @@ function playGame(){
         console.log("You lost this game");
     }
 }
+alert("Welcome to the rock paper scissor game \nYou will be playing against the computer");
+playGame();
