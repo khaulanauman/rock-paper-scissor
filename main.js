@@ -1,7 +1,4 @@
 "use strict"
-//if 0 user won the turn
-//if 1 computer won
-//if -1 draw
 let userChoice;
 let computerChoice;
 let userCount=0;
@@ -12,8 +9,6 @@ function getComputerChoice() {
     return options[randomIndex];
 }
 function playTurn(userChoice,computerChoice){
-    console.log("user "+userChoice);
-    console.log("computer "+computerChoice);
     if(computerChoice==userChoice){
         return -1;
     }
@@ -55,15 +50,9 @@ function playGame(){
             result=playTurn(userChoice,getComputerChoice());
             if(result==0){
                 userCount++;
-                alert("You won this round");
             }
-            else if(result==1){
+            if(result==1){
                 computerCount++;
-                alert("You lost this round");
-            }
-            else{
-                //it always goes here
-                alert("It is a draw");
             }
         }
         else if(userChoice==false){
@@ -71,17 +60,14 @@ function playGame(){
         }
         else{
             alert("Please enter a valid choice");
-        }
-        
-        
+        }  
     }
-    
 }
 alert("Welcome to the rock paper scissor game \nYou will be playing against the computer");
 playGame();
 if(userCount>computerCount){
-    console.log("You won the game.");
+    console.log("You won the game "+userCount+" times");
 }
 else{
-    console.log("You lost this game");
+    console.log("You lost this game "+userCount+" times");
 }
