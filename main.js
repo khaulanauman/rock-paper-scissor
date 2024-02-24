@@ -50,19 +50,30 @@ function playGame(){
     for(let i=1;i<=5;i++){
         alert("Round "+i);
         userChoice=prompt("Enter your choice");
-        result=playTurn(userChoice,getComputerChoice());
-        if(result==0){
-            userCount++;
-            alert("You won this round");
+        userChoice=userChoice.toLowerCase();
+        if(userChoice=="rock"||userChoice=="paper"||userChoice=="scissor"){
+            result=playTurn(userChoice,getComputerChoice());
+            if(result==0){
+                userCount++;
+                alert("You won this round");
+            }
+            else if(result==1){
+                computerCount++;
+                alert("You lost this round");
+            }
+            else{
+                //it always goes here
+                alert("It is a draw");
+            }
         }
-        else if(result==1){
-            computerCount++;
-            alert("You lost this round");
+        else if(userChoice==false){
+            break;
         }
         else{
-            //it always goes here
-            alert("It is a draw");
+            alert("Please enter a valid choice");
         }
+        
+        
     }
     
 }
