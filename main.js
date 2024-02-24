@@ -15,7 +15,7 @@ function getComputerChoice(){
     let options=["rock","paper","scissor"];
     return Math.random(options);
 }
-function playTurn(computerChoice,userChoice){
+function playTurn(userChoice){
     userChoice=toLowerCase(window.prompt("Your choice"));
     computerChoice=getComputerChoice();
     if(computerChoice==userChoice){
@@ -47,5 +47,32 @@ function playTurn(computerChoice,userChoice){
     }
     else{
         alert("please enter valid choice");
+    }
+}
+function playGame(){
+    alert("Welcome to the rock paper scissor game \nYou will be playing against the computer");
+    let userCount=0;
+    let computerCount=0;
+    let result;
+    for(let i=1;i<=5;i++){
+        userChoice=prompt("Enter your choice");
+        result=playTurn(userChoice);
+        if(result==0){
+            userCount++;
+            console.log("You won this round");
+        }
+        else if(result==1){
+            computerCount++;
+            console.log("You lost this round");
+        }
+        else{
+            console.log("It is a draw");
+        }
+    }
+    if(userCount>computerCount){
+        console.log("You won the game.");
+    }
+    else{
+        console.log("You lost this game");
     }
 }
