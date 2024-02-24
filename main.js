@@ -11,6 +11,10 @@
 //if -1 draw
 let userChoice;
 let computerChoice;
+function getComputerChoice(){
+    let options=["rock","paper","scissor"];
+    return Math.random(options);
+}
 function playTurn(computerChoice,userChoice){
     userChoice=toLowerCase(window.prompt("Your choice"));
     computerChoice=getComputerChoice();
