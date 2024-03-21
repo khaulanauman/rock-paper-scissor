@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    margin: 15px;
+    font-family:sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+button{
+    width: 100px;
+    height: 100px;
+    border-radius: 90px;
+    background-color: rgba(244, 164, 35, 0.792);
+    color: white;
+    border-color: rgb(66, 33, 2);
+}
