@@ -12,4 +12,8 @@ button{
     background-color: rgba(244, 164, 35, 0.792);
     color: white;
     border-color: rgb(66, 33, 2);
+    transition: transform 0.2s ease;
+}
+button:hover{
+    transform: scale(1.1);
 }
