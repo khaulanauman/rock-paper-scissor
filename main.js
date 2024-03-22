@@ -57,6 +57,17 @@ function playTurn(event){
         scoreP.textContent=message;
         document.querySelector(".user-score").textContent="User Score : "+userScore;
         document.querySelector(".computer-score").textContent="Computer Score : "+computerScore;
+        if(userScore==5){
+            scoreP.textContent="You have won this round";
+            userScore=0;
+            computerScore=0;
+        }
+        if(computerScore==5){
+            scoreP.textContent="Computer has won this round";
+            computerScore=0;
+            userScore=0;
+        }
+        
         
         
 
