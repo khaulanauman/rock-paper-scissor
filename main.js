@@ -1,73 +1,63 @@
 "use strict"
-let userChoice;
-let computerChoice;
-let userCount=0;
-let computerCount=0;
+const paperBtn = document.querySelector("#paper");
+const rockBtn = document.querySelector("#rock");
+const scissorBtn = document.querySelector("#scissor");
+
+paperBtn.addEventListener("click",playTurn);
+rockBtn.addEventListener("click",playTurn);
+scissorBtn.addEventListener("click",playTurn);
+const scoreP = document.querySelector(".score-update");
+
+
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"];
     let randomIndex = Math.floor(Math.random() * options.length);
     return options[randomIndex];
 }
-function playTurn(userChoice,computerChoice){
+let userScore=0;
+let computerScore=0;
+function playTurn(event){
+    let userChoice= event.target.id;
+    let computerChoice=getComputerChoice();
+    let message="";
+    
     if(computerChoice==userChoice){
-        return -1;
+        message="Computer chose "+computerChoice+ ". It is a draw. ";
     }
     else if(userChoice=="rock"){
         if(computerChoice=="paper"){
-            return 1;
+            computerScore++;
+            message="Computer chose "+computerChoice+" Computer wins. ";
         }
         if(computerChoice=="scissor"){
-            return 0;
+            userScore++;
+            message="Computer chose "+computerChoice+" You win!. ";
         }
     }
     else if(userChoice=="paper"){
         if(computerChoice=="rock"){
-            return 0;
+            userScore++;
+            message="Computer chose "+computerChoice+" You win!. ";
         }
         if(computerChoice=="scissor"){
-            return 1;
+            computerScore++;
+            message="Computer chose "+computerChoice+" Computer wins ";
         }
     }
     else if(userChoice=="scissor"){
         if(computerChoice=="paper"){
-            return 0;
+            userScore++;
+            message="Computer chose "+computerChoice+" You win!. ";
         }
         if(computerChoice=="rock"){
-            return 1;
+            computerScore++;
+            message="Computer chose "+computerChoice+" Computer wins. ";
         }
     }
-    else{
-        alert("please enter valid choice");
-    }
-}
-function playGame(){
-    let result;
-    for(let i=1;i<=5;i++){
-        alert("Round "+i);
-        userChoice=prompt("Enter your choice");
-        userChoice=userChoice.toLowerCase();
-        if(userChoice=="rock"||userChoice=="paper"||userChoice=="scissor"){
-            result=playTurn(userChoice,getComputerChoice());
-            if(result==0){
-                userCount++;
-            }
-            if(result==1){
-                computerCount++;
-            }
-        }
-        else if(userChoice==false){
-            break;
-        }
-        else{
-            alert("Please enter a valid choice");
-        }  
-    }
-}
-alert("Welcome to the rock paper scissor game \nYou will be playing against the computer");
-playGame();
-if(userCount>computerCount){
-    console.log("You won the game "+userCount+" times");
-}
-else{
-    console.log("You lost this game "+userCount+" times");
+        scoreP.textContent=message;
+        document.querySelector(".user-score").textContent="User Score : "+userScore;
+        document.querySelector(".computer-score").textContent="Computer Score : "+computerScore;
+        
+        
+
 }
